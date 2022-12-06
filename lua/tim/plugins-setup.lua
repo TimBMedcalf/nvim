@@ -100,6 +100,9 @@ return packer.startup(function(use)
   -- git integration
   use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
 
+  -- move to file text, like easy motion
+  use({ "phaazon/hop.nvim", branch = "v2" })
+
   if packer_bootstrap then
     require("packer").sync()
   end
