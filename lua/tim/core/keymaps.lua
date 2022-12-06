@@ -1,5 +1,5 @@
 -- set leader key to space
-vim.g.mapleader = " "
+vim.g.mapleader = ","
 
 local keymap = vim.keymap -- for conciseness
 
@@ -12,6 +12,14 @@ keymap.set("i", "jk", "<ESC>")
 
 -- clear search highlights
 keymap.set("n", "<leader>nh", ":nohl<CR>")
+
+-- when using shift j and k you can move up and down 5 lines
+keymap.set("n", "<S-j>", "5j")
+keymap.set("n", "<S-k>", "5k")
+
+-- centers the screen after going up or down
+keymap.set("n", "<C-d>", "<C-d>zz")
+keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- delete single character without copying into register
 keymap.set("n", "x", '"_x')
