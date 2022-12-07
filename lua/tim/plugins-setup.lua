@@ -15,8 +15,8 @@ local packer_bootstrap = ensure_packer() -- true if packer was just installed
 -- when file is saved
 vim.cmd([[ 
   augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins-setup.lua source <afile> | PackerSync
+  autocmd!
+  autocmd BufWritePost plugins-setup.lua source <afile> | PackerSync
   augroup end
 ]])
 
@@ -33,7 +33,10 @@ return packer.startup(function(use)
 
   use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
 
-  use("bluz71/vim-nightfly-guicolors") -- preferred colorscheme
+  -- colorschemes
+  use("bluz71/vim-nightfly-guicolors")
+  use("EdenEast/nightfox.nvim")
+  use("Mofiqul/vscode.nvim")
 
   use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
 
