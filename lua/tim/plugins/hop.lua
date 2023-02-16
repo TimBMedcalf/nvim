@@ -17,6 +17,18 @@ end, { remap = true })
 vim.keymap.set("n", "F", function()
   hop.hint_char1({ current_line_only = true })
 end, { remap = true })
+vim.keymap.set("v", "s", function()
+  hop.hint_char1({ multi_windows = true })
+end, { remap = true })
+vim.keymap.set("v", "S", function()
+  hop.hint_char1({ multi_windows = true })
+end, { remap = true })
+vim.keymap.set("v", "f", function()
+  hop.hint_char1({ current_line_only = true })
+end, { remap = true })
+vim.keymap.set("v", "F", function()
+  hop.hint_char1({ current_line_only = true })
+end, { remap = true })
 
 -- enable comment
 hop.setup({

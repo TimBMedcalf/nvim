@@ -37,6 +37,7 @@ return packer.startup(function(use)
   use("bluz71/vim-nightfly-guicolors")
   use("EdenEast/nightfox.nvim")
   use("Mofiqul/vscode.nvim")
+  use("talha-akram/noctis.nvim")
 
   use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
 
@@ -45,6 +46,7 @@ return packer.startup(function(use)
   -- essential plugins
   use("tpope/vim-surround") -- add, delete, change surroundings (it's awesome)
   use("inkarkat/vim-ReplaceWithRegister") -- replace with register contents using motion (gr + motion)
+  use("RRethy/vim-illuminate") -- highlights matching variable names
 
   -- commenting with gc
   use("numToStr/Comment.nvim")
