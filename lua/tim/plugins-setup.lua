@@ -31,13 +31,18 @@ return packer.startup(function(use)
   -- packer can manage itself
   use("wbthomason/packer.nvim")
 
+  -- Editor config can delete in 0.9 neovim
+  use("gpanders/editorconfig.nvim")
+
+  use("HiPhish/nvim-ts-rainbow2")
+
   use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
 
   -- colorschemes
+  use("Mofiqul/vscode.nvim")
   use("bluz71/vim-nightfly-guicolors")
   use("EdenEast/nightfox.nvim")
-  use("Mofiqul/vscode.nvim")
-  use("talha-akram/noctis.nvim")
+  use("nyoom-engineering/oxocarbon.nvim")
 
   use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
 
