@@ -34,7 +34,7 @@ return packer.startup(function(use)
   -- Editor config can delete in 0.9 neovim
   use("gpanders/editorconfig.nvim")
 
-  use("HiPhish/nvim-ts-rainbow2")
+  use("HiPhish/rainbow-delimiters.nvim")
 
   use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
 

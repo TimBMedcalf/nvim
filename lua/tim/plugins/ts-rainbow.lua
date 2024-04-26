@@ -1,17 +1,17 @@
 -- import nvim-treesitter plugin safely
-local status, rainbow2 = pcall(require, "nvim-treesitter.configs")
+local status = pcall(require, "nvim-treesitter.configs")
 if not status then
   return
 end
 
-rainbow2.setup({
-  rainbow = {
-    enable = true,
-    -- list of languages you want to disable the plugin for
-    disable = { "jsx", "cpp" },
-    -- Which query to use for finding delimiters
-    query = "rainbow-parens",
-    -- Highlight the entire buffer all at once
-    strategy = require("ts-rainbow").strategy.global,
+require("rainbow-delimiters.setup").setup({
+  strategy = {
+    -- ...
+  },
+  query = {
+    -- ...
+  },
+  highlight = {
+    -- ...
   },
 })
