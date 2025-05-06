@@ -10,12 +10,6 @@ if not cmp_nvim_lsp_status then
   return
 end
 
--- import typescript plugin safely
-local typescript_setup, typescript = pcall(require, "typescript")
-if not typescript_setup then
-  return
-end
-
 local keymap = vim.keymap -- for conciseness
 
 -- enable keybinds only for when lsp server available
@@ -25,7 +19,7 @@ local on_attach = function(client, bufnr)
 
   -- set keybinds
   keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts) -- show definition, references
-  keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts) -- got to declaration
+  keymap.set("n", "gD", "<cmd>Lspsaga goto_definition<CR>", opts) -- got to declaration
   keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts) -- see definition and make edits in window
   keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts) -- go to implementation
   keymap.set("n", "ge", "<cmd>Lspsaga show_line_diagnostics<CR>", opts) -- show  diagnostics for line
@@ -43,7 +37,7 @@ local on_attach = function(client, bufnr)
   keymap.set("t", "<leader>te", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], { silent = true })
 
   -- typescript specific keymaps (e.g. rename file and update imports)
-  if client.name == "tsserver" or client.name == "volar" then
+  if client.name == "tsserver" or client.name == "volar" or client.name == "vtsls" then
     keymap.set("n", "<leader>rf", ":TypescriptRenameFile<CR>") -- rename file and update imports
     keymap.set("n", "<leader>oi", ":TypescriptOrganizeImports<CR>") -- organize imports (not in youtube nvim video)
     keymap.set("n", "<leader>ru", ":TypescriptRemoveUnused<CR>") -- remove unused variables (not in youtube nvim video)
@@ -68,16 +62,14 @@ lspconfig["html"].setup({
 })
 
 -- configure typescript server with plugin
-typescript.setup({
-  server = {
-    capabilities = capabilities,
-    on_attach = on_attach,
-  },
+lspconfig["vtsls"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
 })
 
 -- configure vue server
 lspconfig["volar"].setup({
-  filetypes = { "typescript", "javascript", "vue", "json" },
+  filetypes = { "vue" },
 })
 
 -- configure json server
